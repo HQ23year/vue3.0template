@@ -1,0 +1,47 @@
+.flex(@just-content: flex-start, @align-items: center, @direction: row) {
+    display: flex !important;
+    justify-content: @just-content !important;
+    align-items: @align-items !important;
+    flex-direction: @direction  !important;
+}
+
+.width(@width: 100%) {
+    width: @width  !important;
+}
+
+.height(@height: 100%) {
+    height: @height  !important;
+}
+
+.margin(@top: 0, @right: 0, @bottom: 0, @left: 0) {
+    margin: @top @right @bottom @left  !important
+}
+
+.padding(@top: 0, @right: 0, @bottom: 0, @left: 0) {
+    padding: @top @right @bottom @left  !important
+}
+
+.background(@color) {
+    background-color: @color  !important;
+}
+.color(@color) {
+    color: @color  !important;
+}
+
+.display(@display) {
+    display: @display  !important;
+}
+
+.cursor(@cursor: pointer) {
+    cursor: @cursor     !important;
+}
+.text(@position:center){
+    text-align: @position   !important;
+}
+.font(@size:14px,@bold:normal,@family){
+    font-size: @size    !important;
+    font-weight: @bold  !important;
+}
+.transition(@all,@time,@type,@delay){
+    -webkit-transition: @all @time @type @delay;
+}
