@@ -31,12 +31,12 @@ export const asyncRouter = [
     path: '/home',
     name: "home",
     hidden: false,
-    redirect: "index",
+    redirect: "/home/index",
     meta: { title: '首页', icon: 'user', roles: 'admin' },
     component: Layout,
     children: [
       {
-        path: '/index',
+        path: 'index',
         name: "index",
         component: () => import('@/views/home'),
         meta: { title: '首页下的分支' },
@@ -62,7 +62,7 @@ export const asyncRouter = [
 
 
 const router = new VueRouter({
-  routes: defaultRouter
+  routes: defaultRouter.concat(asyncRouter)
 });
 
 export default router;

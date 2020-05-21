@@ -41,12 +41,13 @@ module.exports = {
             errors: true
         },
         proxy: null
+        //跨域配置
         // proxy: {
-        //     '^devApi': {
+        //     '^/devApi': {
         //         target: `http://www.web-jshtml.cn/productapi`,
         //         changeOrigin: true,
         //         pathRewrite: {
-        //             '^devApi': ''
+        //             '^/devApi': ''
         //         }
         //     }
         // },

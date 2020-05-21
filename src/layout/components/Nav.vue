@@ -1,5 +1,5 @@
 <template>
-  <div class="vh-100 bg-main p-10px transition" :class="state.isCollapse?'w-3':'w-10'">
+  <!-- <div class="vh-100 bg-main transition" :class="state.isCollapse?'w-3':'w-10'">
     <el-menu
       default-active="2"
       text-color="#ccc"
@@ -25,7 +25,8 @@
         </el-submenu>
       </template>
     </el-menu>
-  </div>
+  </div>-->
+  <div id="nav-wrap"></div>
 </template>
 
 <script>
@@ -34,7 +35,6 @@ export default {
   name: "sideBar",
   setup(props, { root }) {
     // root指代vue
-    console.log(root.$router.options.routes);
     const state = reactive({
       isCollapse: computed(() => root.$store.state.app.isCollapse),
       routes: root.$router.options.routes
@@ -46,8 +46,14 @@ export default {
 };
 </script>
 
-<style>
-.transition {
-  -webkit-transition: all 0.3s ease 0s;
+<style lang="less" scoped>
+@import "../../styles/index.less";
+#nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: @navMenu;
+  height: 100vh;
+  background-color: #ccc;
 }
 </style>

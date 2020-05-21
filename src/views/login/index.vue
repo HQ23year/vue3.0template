@@ -40,10 +40,16 @@
 /*
   加密 base64 ,md5 ,sha1 
 
+  1.前端注册时加密,传给后台
+  2.后端再次加密,存入数据库
+  3.登录时,用户名与加密后的密码进行比对
+  import sha1 from 'js-sha1';
+  sha1(number)
+
 */
 
 import { reactive, ref } from "@vue/composition-api";
-// import request from "@/api";
+import request from "@/api";
 import storage from "@/utils/storage";
 export default {
   name: "login",
@@ -58,18 +64,28 @@ export default {
       toggleMenu: current => (state.model = current.id === 1 ? "登录" : "注册")
     };
     const asyncMthods = {
-      submitForm: async formName => {
+      // 登录
+      async submitForm(formName) {
         const loading = root.$loading();
         try {
+          /*
+            登录成功后 
+            1.将token存入localStorage
+            2.路由跳转至首页
+          */
           const res = await root.$store.dispatch("login/test");
           storage.setToken("111111");
           loading.close();
           root.$router.push("/home");
         } catch (error) {}
       },
-      getCode: async formName => {
+      // 获取验证码
+      async getCode(formName) {
         try {
-          const res = await getSms({ username: state.ruleForm.username });
+          const res = await request.login.getSms({
+            username: "1111111@qq.com",
+            module: "login"
+          });
           console.log(res);
         } catch (error) {}
       }

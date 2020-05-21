@@ -1,21 +1,20 @@
 <template>
-  <div class="flex">
-    <side-bar />
-    <div class="w-90">
-      <header-nav />
-      <main-layout />
-    </div>
+  <div>
+    <layout-header />
+    <layout-main />
+    <layout-nav />
   </div>
 </template>
 
 <script>
 import { reactive, ref } from "@vue/composition-api";
-import headerNav from "./components/header";
-import mainLayout from "./components/main";
-import sideBar from "./components/sideBar";
+import layoutHeader from "./components/Header";
+import layoutMain from "./components/Main";
+import layoutNav from "./components/Nav";
 export default {
   name: "layout",
-  components: { headerNav, mainLayout, sideBar }
+  components: { layoutHeader, layoutMain, layoutNav },
+  setup() {}
 };
 </script>
 
